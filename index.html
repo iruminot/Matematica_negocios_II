@@ -87,6 +87,21 @@
                 <button onclick="prevSlide()" class="carousel-button left">&#10094;</button>
                 <button onclick="nextSlide()" class="carousel-button right">&#10095;</button>
             </div>
+
+    <script>
+        // Carrusel
+        let currentSlide = 0;
+        const track = document.getElementById("carousel-track");
+        const updateCarousel = () => {
+            const slideWidth = track.offsetWidth / 2;
+            track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+        };
+        const nextSlide = () => { if (currentSlide < 1) { currentSlide++; updateCarousel(); } };
+        const prevSlide = () => { if (currentSlide > 0) { currentSlide--; updateCarousel(); } };
+        window.addEventListener("resize", updateCarousel);
+    </script>
+
+
 	<footer>
 		<p>Gracias por visitar mi sitio web.</p>
 	</footer>
