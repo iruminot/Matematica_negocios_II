@@ -11,3 +11,9 @@
 
 
 [Descargar HTML](https://github.com/iruminot/Matematica_negocios_II/blob/main/clases/Clase_1.html){:download="Clase_1.html"}
+
+<a href="https://iruminot.github.io/Matematica_negocios_II/Clase_1.html" download="Clase_1.html">
+  <button style="background-color:#2ea44f; color:white; padding:8px 16px; border:none; border-radius:4px;">
+    ⬇️ Descargar HTML renderizado
+  </button>
+</a>
