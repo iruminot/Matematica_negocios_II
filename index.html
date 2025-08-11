@@ -89,6 +89,38 @@
             </div>
 
     <script>
+        class LanguageManager {
+            constructor() {
+                this.currentLang = localStorage.getItem('selectedLanguage') || 'es';
+                this.init();
+            }
+            init() {
+                this.setupEventListeners();
+                this.setLanguage(this.currentLang);
+            }
+            setupEventListeners() {
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.addEventListener('click', e => {
+                        this.setLanguage(e.target.dataset.lang);
+                    });
+                });
+            }
+            setLanguage(lang) {
+                this.currentLang = lang;
+                localStorage.setItem('selectedLanguage', lang);
+                document.getElementById('html-root').lang = lang;
+                document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                    const text = el.getAttribute(`data-${lang}`);
+                    if (text) el.innerHTML = text;
+                });
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+                document.title = lang === 'es' ? 'EBCP Latam 2025 - Workshop SynBio' : 'EBCP Latam 2025 - SynBio Workshop';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => new LanguageManager());
+
         // Carrusel
         let currentSlide = 0;
         const track = document.getElementById("carousel-track");
@@ -101,7 +133,7 @@
         window.addEventListener("resize", updateCarousel);
     </script>
 
-
+    
 	<footer>
 		<p>Gracias por visitar mi sitio web.</p>
 	</footer>
