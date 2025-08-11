@@ -2,3 +2,7 @@
 [Ver Clase 1 como notebook](https://nbviewer.jupyter.org/github/iruminot/Matematica_negocios_II/blob/main/clases/Clase_1.ipynb?flush_cache=true&download=1)
 
 [Descargar HTML renderizado](https://github.com/iruminot/Matematica_negocios_II/raw/main/clases/Clase_1.html)
+
+
+### Descargar Clase 1 (HTML renderizado)
+[![Descargar HTML](https://img.shields.io/badge/Descargar-HTML%20Renderizado-blue)](https://github.com/iruminot/Matematica_negocios_II/raw/main/clases/Clase_1.html)
