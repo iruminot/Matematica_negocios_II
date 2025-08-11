@@ -8,3 +8,6 @@
 [![Descargar HTML](https://img.shields.io/badge/Descargar-HTML%20Renderizado-blue)](https://github.com/iruminot/Matematica_negocios_II/raw/main/clases/Clase_1.html)
 
 [Descargar HTML renderizado](https://github.com/iruminot/Matematica_negocios_II/raw/main/clases/Clase_1.html){:download="Clase_1.html"}
+
+
+[Descargar HTML](https://github.com/iruminot/Matematica_negocios_II/blob/main/clases/Clase_1.html){:download="Clase_1.html"}
