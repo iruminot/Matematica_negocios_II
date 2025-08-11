@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controladores biomoleculares - EBCP Latam 2025</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../../images/bacteria favicon.svg">
+
+    <link rel="stylesheet" href="../../../static/custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- MathJax para matemáticas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Prism.js para sintaxis highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+</head>
+
+<body>
+    <!-- Header - exactamente igual a tu index -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="../../../images/logobacteria.svg" alt="EBCP Latam Logo" class="nav-logo">
+                <span class="brand-text">EBCP Latam 2025</span>
+            </div>
+            <div class="nav-links">
+                <a href="../../../index.html" data-es="Inicio" data-en="Home">Inicio</a>
+                <a href="../../../lectures.html" data-es="Lectures" data-en="Lectures">Lectures</a>
+                <a href="../../../about.html" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</a>
+                <a href="https://github.com/polarbio/wsynbio-2025" target="_blank">GitHub</a>
+                
+                <!-- Language Toggle -->
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="es">ESP</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Notebook Section -->
+    <section class="notebook-section">
+        <div class="notebook-container">
+
+            <!-- Header del notebook -->
+            <div class="notebook-header-TR">
+                <h1 class="notebook-title"
+                    data-es="Controladores biomoleculares"
+                    data-en="Biomolecular controllers">
+                    Controladores biomoleculares
+                </h1>
+                <p class="notebook-subtitle"
+                   data-es="2025 Workshop en Modelamiento de Sistemas Biológicos"
+                   data-en="2025 Workshop on Biological Systems Modeling">
+                    2025 Workshop en Modelamiento de Sistemas Biológicos
+                </p>
+                <div class="notebook-meta">
+                    <div data-es="Autores: Bsc. Frank Britto Bisso | Revisado por: PhD. Christian Cuba Samaniego"
+                         data-en="Authors: Bsc. Frank Britto Bisso | Reviewed by: PhD. Christian Cuba Samaniego">
+                        Autores: Bsc. Frank Britto Bisso | Revisado por: PhD. Christian Cuba Samaniego
+                    </div>
+                    <div data-es="Última fecha de modificación: 12 de Julio, 2025"
+                         data-en="Last modified: July 12, 2025">
+                        Última fecha de modificación: 12 de Julio, 2025
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido del notebook -->
+            
+            <div class="cell cell-markdown">
+                <h2 style="color: var(--dark-purple);" data-es="¿Qué mecanismo permite que la expresión génica sea tan robusta frente a perturbaciones externas y al ruido?"
+                    data-en="What mechanism enables gene expression to be so robust to external perturbation and noise?">
+                    ¿Qué mecanismo permite que la expresión génica sea tan robusta frente a perturbaciones externas y al ruido?
+                </h2>
+                
+                <p data-es="La expresión génica en células es notablemente robusta: es capaz de mantenerse dentro de rangos funcionales en todo momento a pesar de las fluctuaciones en las condiciones intracelulares, extracelulares y el ruido. Las células parecen regular la expresión de sus genes de manera que ''amortiguan'' estas fluctuaciones, lo que les permite mantener un comportamiento deseado con precisión y en el momento adecuado. Muchas vías de señalización exhiben este nivel de control, incluyendo la quimiotaxis (<a style='color: var(--dark-purple);' href='https://www.pnas.org/doi/10.1073/pnas.97.9.4649'>Yi et al., 2000</a>),  la respuesta osmótica (<a style='color: var(--dark-purple);' href='https://www.cell.com/cell/fulltext/S0092-8674(09)00508-X?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS009286740900508X%3Fshowall%3Dtrue'>Muzzey et al., 2009</a>) y varios procesos electrofisiológicos (<a style='color: var(--dark-purple);' href='https://www.nature.com/articles/srep01251'>De Palo et al., 2013</a>), los cuales tienden a estabilizar su salida en torno a un valor objetivo específico incluso en presencia de perturbaciones persistentes. Entonces, ¿qué tipo de estrategia utilizan las células para lograr una expresión génica tan robusta?"
+                   data-en="Gene expression in living cells is remarkably robust, maintained within functional ranges at all times despite fluctuations in intracellular conditions and environmental noise. Cells appear to regulate expression in ways that ''buffer'' against these fluctuations, allowing them to maintain a desired behavior in a precise and timely fashion. Many complex pathways exhibit this level of control, including chemotaxis (<a style='color: var(--dark-purple);' href='https://www.pnas.org/doi/10.1073/pnas.97.9.4649'>Yi et al, 2000</a>), the osmotic response (<a style='color: var(--dark-purple);' href='https://www.cell.com/cell/fulltext/S0092-8674(09)00508-X?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS009286740900508X%3Fshowall%3Dtrue'>Muzzey et al, 2009</a>) and several electrophysiological processes (<a style='color: var(--dark-purple);' href='https://www.nature.com/articles/srep01251'>De Palo et al, 2013</a>), which tend to stabilize their output around a specific target value even in the presence of persistent disturbances. Then, what kind of strategy do cells use to achieve such robust gene expression?">
+                    La expresión génica en células es notablemente robusta: es capaz de mantenerse dentro de rangos funcionales en todo momento a pesar de las fluctuaciones en las condiciones intracelulares, extracelulares y el ruido. Las células parecen regular la expresión de sus genes de manera que ''amortiguan'' estas fluctuaciones, lo que les permite mantener un comportamiento deseado con precisión y en el momento adecuado. Muchas vías de señalización exhiben este nivel de control, incluyendo la quimiotaxis (<a style='color: var(--dark-purple);' href='https://www.pnas.org/doi/10.1073/pnas.97.9.4649'>Yi et al., 2000</a>),  la respuesta osmótica (<a style='color: var(--dark-purple);' href='https://www.cell.com/cell/fulltext/S0092-8674(09)00508-X?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS009286740900508X%3Fshowall%3Dtrue'>Muzzey et al., 2009</a>) y varios procesos electrofisiológicos (<a style='color: var(--dark-purple);' href='https://www.nature.com/articles/srep01251'>De Palo et al., 2013</a>), los cuales tienden a estabilizar su salida en torno a un valor objetivo específico incluso en presencia de perturbaciones persistentes. Entonces, ¿qué tipo de estrategia utilizan las células para lograr una expresión génica tan robusta?
+                </p>
+
+                <p data-es="Este tipo de regulación se logra gracias al control por <em>feedback</em>. En un esquema general de control (ver Figura 1, izquierda), este tipo de controlares generan una señal de control ($U$) basada en una métrica de error estimada al comparar la salida actual del proceso que se desea controlar ($Y$) con un valor objetivo deseado ($R$), también llamado <em>referencia</em>. El objetivo principal del controlador es minimizar este error. De este modo, si ocurre una perturbación en el proceso o si el entorno es ruidoso, los niveles de expresión génica son corregidos de vuelta hacia su valor deseado (ver Figura 1, derecha)."
+                   data-en="It all comes down to <em>feedback</em> control. In a general control system setup (see Figure 1, left), feedback controllers generate a control signal ($U$) based on an error metric estimated by comparing the current output of the process being controlled ($Y$) and a desired target value ($R$). The main goal of the feedback controller is to minimize this error. In this way, if there is a perturbation in the process being controlled or if the environment is noisy, gene expression levels are nudged back toward their desired value (see Figure 1, right).">
+                   Este tipo de regulación se logra gracias al control por <em>feedback</em>. En un esquema general de control (ver Figura 1, izquierda), este tipo de controlares generan una señal de control ($U$) basada en una métrica de error estimada al comparar la salida actual del proceso que se desea controlar ($Y$) con un valor objetivo deseado ($R$), también llamado <em>referencia</em>. El objetivo principal del controlador es minimizar este error. De este modo, si ocurre una perturbación en el proceso o si el entorno es ruidoso, los niveles de expresión génica son corregidos de vuelta hacia su valor deseado (ver Figura 1, derecha). 
+                </p>
+
+                <div class="cell cell-markdown" style="display: flex; justify-content: center;">
+                    <img src="Figura 1_LN3_esp.png" alt="Figura ES" class="lang-img" data-lang="es" style="max-width: 100%; height: auto;">
+                    <img src="Figura 1_LN3_en.png" alt="Figure EN" class="lang-img" data-lang="en" style="max-width: 100%; height: auto; display: none;">
+                </div>
+
+                <p data-es="En esta clase exploraremos cómo diseñar uno de los controladores de feedback más simples basado en una reacción de secuestramiento molecular: el controlador proporcional. Utilizaremos el principio de separación de escalas de tiempo y análisis en estado estacionario para entender cómo podemos reducir el error entre el nivel deseado de expresión génica y el nivel real. También realizaremos un análisis de estabilidad local para derivar condiciones matemáticas que garanticen asintóticamente que el controlador permanezca acotado. Finalmente, examinaremos los principios de diseño para construir un controlador de feedback basado en una reacción química que exhiba ultrasensibilidad."
+                   data-en="Here we will explore how to design one of the simplest feedback controllers based on a molecular sequestration reaction: the proportional controller. We will use time-scale separation and steady-state analysis to understand how we can decrease the error between the desired gene expression level and the actual one. We will also perform local stability analysis to derive mathematical conditions that asymptotically guarantee the controller remains bounded. Finally, we will examine the design principles for building a feedback controller based on a chemical reaction that exhibits ultrasensitivity.">
+                   En esta clase exploraremos cómo diseñar uno de los controladores de feedback más simples basado en una reacción de secuestramiento molecular: el controlador proporcional. Utilizaremos el principio de separación de escalas de tiempo y análisis en estado estacionario para entender cómo podemos reducir el error entre el nivel deseado de expresión génica y el nivel real. También realizaremos un análisis de estabilidad local para derivar condiciones matemáticas que garanticen asintóticamente que el controlador permanezca acotado. Finalmente, examinaremos los principios de diseño para construir un controlador de feedback basado en una reacción química que exhiba ultrasensibilidad. 
+                </p>
+
+                <h3 data-es="Fundamentos del diseño de un controlador proporcional"
+                    data-en="Building intuition: designing a proportional controller">
+                    Fundamentos del diseño de un controlador proporcional
+                </h3>
+
+                <p data-es="El controlador proporcional es el tipo más simple de controlador de feedback, en el cual la señal de control es directamente proporcional al error entre la salida y la reference. Como ejemplo, diseñaremos un controlador basado en secuestramiento molecular, donde una especie $R$ actúa como referencia y produce $U_1$, que interactúa con $U_2$ mediante una reacción de secuestramiento. En cuanto al proceso (a veces llamado también ''planta''), consideraremos un sistema de expresión en cascada de dos especies, donde una especie química $W$ produce una especie $Y$, la cual es luego detectada por el controlador para formar el sistema en lazo cerrado mostrado en la Figura 2 (izquierda)."
+                   data-en="The proportional controller is the simplest type of feedback controller, in which the control signal is directly proportional to the error between the output and the target value. As an example, we will study a sequestration-based controller, where an species $R$ acts as the reference and produces $U_1$, which interacts with $U_2$ via molecular sequestration. As for the process (sometimes known as the ''plant''), we will consider a two-species cascade expression system, where a chemical species $W$ produces a species $Y$, which is then sensed by the controller to generate the closed-loop system shown in Figure 2.">
+                  El controlador proporcional es el tipo más simple de controlador de feedback, en el cual la señal de control es directamente proporcional al error entre la salida y la reference. Como ejemplo, diseñaremos un controlador basado en secuestramiento molecular, donde una especie $R$ actúa como referencia y produce $U_1$, que interactúa con $U_2$ mediante una reacción de secuestramiento. En cuanto al proceso (a veces llamado también planta), consideraremos un sistema de expresión en cascada de dos especies, donde una especie química $W$ produce una especie $Y$, la cual es luego detectada por el controlador para formar el sistema en lazo cerrado mostrado en la Figura 2 (izquierda). 
+                </p>
+
+                <div class="cell cell-markdown" style="display: flex; justify-content: center;">
+                    <img src="Figura 2_LN3_esp.png" alt="Figura ES" class="lang-img" data-lang="es" style="max-width: 100%; height: auto;">
+                    <img src="Figura 2_LN3_en.png" alt="Figure EN" class="lang-img" data-lang="en" style="max-width: 100%; height: auto; display: none;">
+                </div>
+
+                <p data-es="Comencemos escribiendo las reacciones químicas que describen al sistema de lazo cerrado. Cabe resaltar que estamos ignorando la dinámica del complejo $C$ mostrado en la Figura 2 debido a que no afecta la dinámica del sistema completo en el régimen de secuestramiento rápido (ver Lecture Notes #1)."
+                   data-en="Let's start by writing the chemical reactions that describe with the closed-loop system. Note that we are ignoring the dynamics of the complex $C$ shown in Figure 2 because it doesn't affect the dynamics of the whole system in the fast sequestration regime (see Lecture Notes #1).">
+                    Comencemos escribiendo las reacciones químicas que describen al sistema de lazo cerrado. Cabe resaltar que estamos ignorando la dinámica del complejo $C$ mostrado en la Figura 2 debido a que no afecta la dinámica del sistema completo en el régimen de secuestramiento rápido (ver Lecture Notes #1).
+                </p>
+
+                <div class="math-block">
+                    $$\begin{align}
+                   R &\xrightarrow{\alpha_1} U_1 && U_1 \xrightarrow{\delta} \emptyset && \text{Producción y degradación of $U_1$}\\
+                    Y &\xrightarrow{\alpha_1} U_2 && U_2 \xrightarrow{\delta} \emptyset && \text{Producción y degradación of $U_2$}\\
+                    U_1 + U_2 &\xrightarrow{\gamma} \emptyset && && \text{Secuestramiento molecular} \\
+                    U_1  &\xrightarrow{\theta_1} U_1 + W && W \xrightarrow{\delta} \emptyset && \text{Señal de control y degradación} \\
+                    W &\xrightarrow{\theta_2} W + Y && Y \xrightarrow{\delta} \emptyset && \text{Producción y degradación of $Y$}
+                    \end{align}$$
+                </div>
+
+                <p data-es="A continuación, modelaremos estas reacciones químicas utilizando la ley de acción de masas. Sin embargo, vemos que existe un número considerable de parámetros cinéticos ($\alpha_1$, $\theta_1$, $\theta_2$, $\delta$, $\gamma$), lo cual puede dificultar nuestro análisis matemático. Por ello, utilizaremos una versión <strong>adimensional</strong> de las ecuaciones diferenciales para reducir la cantidad de parámetros involucrados en el análisis (ver Technical Note #4). Como resultado, trabajaremos con un sistema un poco más sencillo:"
+                   data-en="Next, let's model the chemical reactions using the law of mass action. We notice that we have a quite large number of kinetic parameters ($\alpha_1$, $\theta_1$, $\theta_2$, $\delta$, and $\gamma$), which may difficult our mathematical analysis. Therefore, we will use a <strong>non dimensional</strong> version of the ODEs in order to reduce the number of parameters involved in our analysis (see Technical Note #4). This results in the following non dimensional ODEs:">
+                   A continuación, modelaremos estas reacciones químicas utilizando la ley de acción de masas. Sin embargo, vemos que existe un número considerable de parámetros cinéticos ($\alpha_1$, $\theta_1$, $\theta_2$, $\delta$, $\gamma$), lo cual puede dificultar nuestro análisis matemático. Por ello, utilizaremos una versión adimensional de las ecuaciones diferenciales para reducir la cantidad de parámetros involucrados en el análisis (ver Technical Note #4). Como resultado, trabajaremos con un sistema un poco más sencillo:
+                </p>
+
+                <div class="math-block">
+                    $$\begin{eqnarray}
+                    \frac{d}{d\tau} u_1 &=& \alpha_1 r - u_1 - \frac{1}{\xi} u_1 u_2 \\
+                        \frac{d}{d\tau} u_2 &=& \alpha_1 y - u_2 - \frac{1}{\xi} u_1 u_2 \\
+                    \frac{d}{d\tau} w &=& \theta_1 u_1 - w \\
+                    \frac{d}{d\tau} y &=& \theta_2 w - y
+                    \end{eqnarray}$$
+                </div>
+
+                <p data-es="Definamos el error en estado estacionario ($e$) como la diferencia entre la referencia, dada por la concentración (constante) de la especie $R$, y la especie $Y$, de modo que $e = r - \bar y$. Ahora exploremos el régimen cinético en el que la tasa de secuestro es extremadamente alta, es decir, cuando $\xi \to 0$. Al resolver el estadio estacionario de las ecuaciones en función del error, obtendremos la siguiente expresión para $e$:"
+                   data-en="Let's define the steady-state error ($e$) as the difference between the set-point, given by the (constant) concentration of the species $R$, and the feedback species $Y$, so that $e = r - \bar y$. We now explore the kinetic regimen where the sequestration rate is extremely fast. That is, when $\xi \to 0$. From the steady-state expression derived for the non-dimensional ODEs, we obtain the following expression for $e$ in this regimen,">
+                   Definamos el error en estado estacionario ($e$) como la diferencia entre la referencia, dada por la concentración (constante) de la especie $R$, y la especie $Y$, de modo que $e = r - \bar y$. Ahora exploremos el régimen cinético en el que la tasa de secuestro es extremadamente alta, es decir, cuando $\xi \to 0$. Al resolver el estadio estacionario de las ecuaciones en función del error, obtendremos la siguiente expresión para $e$: 
+                </p>
+
+                <div class="math-block">
+                    $$\begin{eqnarray}
+                    \lim_{\xi \to 0} e = \frac{r}{1 + \alpha_1 \theta_1 \theta_2}
+                    \end{eqnarray}$$
+                </div>
+
+                <p data-es="En otras palabras, si aumentamos la ganancia del controlador ($\alpha_1$), podremos reducir el error en estado estacionario. Sin embargo, es importante preguntarnos: ¿cuánto podemos aumentar esta ganancia sin desestabilizar el proceso? Como un primer experimento, realicemos algunas simulaciones para observar cómo responde el sistema a medida que incrementamos $\alpha_1$, buscando el valor más alto que aún mantenga estabilidad."
+                   data-en="In other words, if we increase the gain of the controller ($\alpha_1$), we will be able to decrease the steady-state error. However, we should ask ourselves: how much can we increase this gain without destabilizing our process? As a quick experiment, we can run a few simulations and see how the system responds as we gradually increase $\alpha_1$, looking for the highest value that still exhibits stability.">
+                   En otras palabras, si aumentamos la ganancia del controlador ($\alpha_1$), podremos reducir el error en estado estacionario. Sin embargo, es importante preguntarnos: ¿cuánto podemos aumentar esta ganancia sin desestabilizar el proceso? Como un primer experimento, realicemos algunas simulaciones para observar cómo responde el sistema a medida que incrementamos $\alpha_1$, buscando el valor más alto que aún mantenga estabilidad.
+                </p>
+
+            </div>
+
+            <div class="cell cell-output" style="margin-bottom: 0.5rem; text-align: center;">
+            <!-- Versión en español -->
+                <iframe class="lang-img" data-lang="es"
+                    src="Figura 3_LN3_esp.html"
+                    width="100%" height="225"
+                    style="border:none; display: block;"></iframe>
+
+                <!-- Versión en inglés -->
+                <iframe class="lang-img" data-lang="en"
+                    src="Figura 3_LN3_en.html"
+                    width="100%" height="225"
+                    style="border:none; display: none;"></iframe>
+            </div>
+
+
+            <div class="cell cell-markdown">
+
+                <p data-es="Mediante prueba y error, encontramos que cuando $\alpha_1$ se aproxima o supera el valor de 8, el sistema comienza a oscilar. Esto indica que el proceso ha pasado a un régimen dinámico distinto y ya no converge al valor de la referencia. Esto es un ejemplo de la compensación entre reducir el error en estado estacionario y mantener la estabilidad del sistema. Para formalizar esta observación, podemos utilizar un análisis de estabilidad local para derivar una condición que garantice estabilidad asintótica. Al operar en el régimen donde el secuestramiento es muy rápido ($\xi \to 0$), el análisis de los autovalores del polinomio característico (ver Technical Note #3 y Lecture Notes #2) nos lleva a la condición:"
+                   data-en="By trial and error, we found that when $\alpha_1$ approaches or exceeds 8, the system begins to oscillate. This means the process has shifted to a different dynamic regime and no longer converges to the desired target value. What we just observed is an example of the tradeoff between reducing steady-state error and maintaining system stability. To formalize this, we can use a local stability analysis to derive a condition that guarantees asymptotic stability. When operating in the regime where sequestration is very fast, analyzing the eigenvalues of the characteristic polynomial (see Technical Note #3 and Lecture Note #2) yields the following condition:">
+                   Mediante prueba y error, encontramos que cuando $\alpha_1$ se aproxima o supera el valor de 8, el sistema comienza a oscilar. Esto indica que el proceso ha pasado a un régimen dinámico distinto y ya no converge al valor de la referencia. Esto es un ejemplo de la compensación entre reducir el error en estado estacionario y mantener la estabilidad del sistema. Para formalizar esta observación, podemos utilizar un análisis de estabilidad local para derivar una condición que garantice estabilidad asintótica. Al operar en el régimen donde el secuestramiento es muy rápido ($\xi \to 0$), el análisis de los autovalores del polinomio característico (ver Technical Note #3 y Lecture Notes #2) nos lleva a la condición: 
+                </p>
+
+                <div class="math-block">
+                    $$\begin{eqnarray}
+                    0 < \alpha_1 \theta_1 \theta_2 < 8
+                    \end{eqnarray}$$
+                </div>
+
+                <p data-es=", que es precisamente lo que encontramos con nuestras simulaciones!"
+                   data-en="which matches exactly what we found through simulation!">
+                   , que es precisamente lo que encontramos con nuestras simulaciones!
+                </p>
+
+            </div>
+
+            <div class="cell cell-markdown">
+
+                <h3 data-es="Reduciendo el error a cero: diseñando un controlador (casi) integral"
+                    data-en="Towards reducing the error to zero: the quasi-integral controller">
+                    Reduciendo el error a cero: diseñando un controlador (casi) integral
+                </h3>
+
+                <p data-es="En 2016, Briat et al. formalizaron el mecanismo mediante el cual ciertos sistemas biológicos pueden lograr <strong>adaptación perfecta</strong>; es decir, la capacidad de ''recuperarse'' de una perturbación y volver exactamente a su estado original, sin dejar de responder a cambios posteriores. Utilizando conceptos de teoría de control, los autores propusieron el <em>controlador integral antitético</em>, un circuito basado en la reacción de secuestramiento molecular. Demostraron tanto de manera matemática (<a style='color: var(--dark-purple);' href='https://www.cell.com/fulltext/S2405-4712(16)00005-3'>Briat et al., 2016a</a>) como experimental (<a style='color: var(--dark-purple);' href='https://pubs.acs.org/doi/10.1021/acssynbio.6b00014'>Briat et al., 2016b</a>) que esta circuito puede generar un error en estado estacionario igual a cero, siempre que la degradación de las especies sea despreciable (~ 0)."
+                   data-en="In 2016, Briat et al. formalized the mechanism by which certain biological systems can achieve <strong>perfect adaptation</strong> , meaning they can ''recover'' from a perturbation and return precisely to their original state while remaining responsive to further changes. Using concepts from control theory, the authors proposed the <em>antithetic integral controller</em> , a motif based on the molecular sequestration reaction. They demonstrated both mathematically (<a style='color: var(--dark-purple);' href='https://www.cell.com/fulltext/S2405-4712(16)00005-3'>Briat et al., 2016a</a>) and experimentally (<a style='color: var(--dark-purple);' href='https://pubs.acs.org/doi/10.1021/acssynbio.6b00014'>Briat et al., 2016b</a>) how this motif is able to provide a zero steady-state error given that the degradation of species is negligible (~ 0).">
+                    En 2016, Briat et al. formalizaron el mecanismo mediante el cual ciertos sistemas biológicos pueden lograr <strong>adaptación perfecta</strong>; es decir, la capacidad de ''recuperarse'' de una perturbación y volver exactamente a su estado original, sin dejar de responder a cambios posteriores. Utilizando conceptos de teoría de control, los autores propusieron el <em>controlador integral antitético</em>, un circuito basado en la reacción de secuestramiento molecular. Demostraron tanto de manera matemática (<a style='color: var(--dark-purple);' href='https://www.cell.com/fulltext/S2405-4712(16)00005-3'>Briat et al., 2016a</a>) como experimental (<a style='color: var(--dark-purple);' href='https://pubs.acs.org/doi/10.1021/acssynbio.6b00014'>Briat et al., 2016b</a>) que esta circuito puede generar un error en estado estacionario igual a cero, siempre que la degradación de las especies sea despreciable (~ 0).
+                </p>
+
+                <p data-es="Dado que esta acción integral depende de la tasa de degradación, debemos adaptar nuestras ecuaciones anteriores para reflejar que las especies del controlador ($U_1$ y $U_2$) se degradan de manera distinta a las especies del proceso ($W$ y $Y$). Para representar esto, introducimos un parámetro adimensional $\zeta$ que multiplica los términos de degradación de $u_1$ y $u_2$, y exploramos el régimen cinético en el que $\zeta \to 0$."
+                   data-en="Since the condition for this integral action depends on the degradation rate, we must adapt our previous equations to reflect that the controller species ($U_1$ and $U_2$) degrade differently from the process species ($W$ and $Y$). To capture this, we introduce a non-dimensional parameter $\zeta$ that multiplies the degradation terms for $u_1$ and $u_2$, and we explore the kinetic regime where $\zeta \to 0$.">
+                   Dado que esta acción integral depende de la tasa de degradación, debemos adaptar nuestras ecuaciones anteriores para reflejar que las especies del controlador ($U_1$ y $U_2$) se degradan de manera distinta a las especies del proceso ($W$ y $Y$). Para representar esto, introducimos un parámetro adimensional $\zeta$ que multiplica los términos de degradación de $u_1$ y $u_2$, y exploramos el régimen cinético en el que $\zeta \to 0$.
+                </p>
+
+                <div class="math-block">
+                    $$\begin{eqnarray}
+                    \frac{d}{d\tau} u_1 &=& \alpha_1 r - \zeta u_1 - \frac{1}{\xi} u_1 u_2 \\
+                    \frac{d}{d\tau} u_2 &=& \alpha_1 y - \zeta u_2 - \frac{1}{\xi} u_1 u_2 \\
+                    \frac{d}{d\tau} w &=& \theta_1 u_1 - w \\
+                    \frac{d}{d\tau} y &=& \theta_2 w - y
+                    \end{eqnarray}$$
+                </div>
+
+                <p data-es="<strong>Nota</strong>: esta operación es equivalente  a asumir degradaciones distintas (a saber, $\delta$ para el controlador y $\phi$ para el proceso), y repetir los pasos de adimensionalización con respecto a $\phi$."
+                   data-en="<strong>Note</strong>: This will be equivalent to assuming different degradations (namely, $\delta$ for the controller, and $\phi$ for the process), and repeating the non-dimensionalization steps with respect to $\phi$.">
+                   <strong>Nota</strong>: esta operación es equivalente  a asumir degradaciones distintas (a saber, $\delta$ para el controlador y $\phi$ para el proceso), y repetir los pasos de adimensionalización con respecto a $\phi$.
+                </p>
+
+            </div>
+
+            <div class="cell cell-output" style="margin-bottom: 0.5rem; text-align: center;">
+            <!-- Versión en español -->
+                <iframe class="lang-img" data-lang="es"
+                    src="Figura 4_LN3_esp.html"
+                    width="100%" height="225"
+                    style="border:none; display: block;"></iframe>
+
+                <!-- Versión en inglés -->
+                <iframe class="lang-img" data-lang="en"
+                    src="Figura 4_LN3_en.html"
+                    width="100%" height="225"
+                    style="border:none; display: none;"></iframe>
+            </div>
+
+            <div class="cell cell-markdown">
+
+                <p data-es="Ahora que hemos confirmado las condiciones bajo las cuales el controlador integral antitético funciona correctamente, estudiaremos más de cerca dos propiedades importantes: el <em>tracking de referencia</em>, que es la capacidad del sistema para ajustarse a un nuevo valor de referencia, y la <em>robustes ante perturbaciones</em>, que es su capacidad para volver al estado anterior después de haber sido perturbado."
+                   data-en="Now that we’ve confirmed the conditions under which the antithetic integral controller works properly, we’ll take a closer look at two important properties: <em>reference tracking</em>, the system’s ability to adjust to a new set-point, and <em>disturbance rejection</em>, its capacity to return to the previous state after being perturbed.">
+                   Ahora que hemos confirmado las condiciones bajo las cuales el controlador integral antitético funciona correctamente, estudiaremos más de cerca dos propiedades importantes: el <em>tracking de referencia</em>, que es la capacidad del sistema para ajustarse a un nuevo valor de referencia, y la <em>robustes ante perturbaciones</em>, que es su capacidad para volver al estado anterior después de haber sido perturbado.
+                </p>
+
+            </div>
+
+            <div class="cell cell-output" style="margin-bottom: 0.5rem; text-align: center;">
+            <!-- Versión en español -->
+                <iframe class="lang-img" data-lang="es"
+                    src="Figura 5_LN3_esp.html"
+                    width="100%" height="250"
+                    style="border:none; display: block;"></iframe>
+
+                <!-- Versión en inglés -->
+                <iframe class="lang-img" data-lang="en"
+                    src="Figura 5_LN3_en.html"
+                    width="100%" height="250"
+                    style="border:none; display: none;"></iframe>
+            </div>
+
+            <div class="cell cell-markdown">
+
+                <h2 style="color: var(--dark-purple);" data-es="Control adaptativo"
+                    data-en="Adaptive control">
+                    Control adaptativo
+                </h2>
+                
+                <p data-es="Al diseñar controladores de feedback, uno de los desafíos más importantes es que generalmente necesitamos entender cómo se comporta el sistema. En la práctica, esto significa utilizar ecuaciones que describen el proceso que queremos controlar (a esto también se le denomina tener un <em>entendimiento mecanístico</em> del sistema). Sin embargo, la mayoría de las vías de señalización en biología aún no se entienden por completo. Por ello, puede resultar difícil elegir una buena señal de referencia o ajustar correctamente los parámetros del controlador, lo que lleva a ciclos iterativos de prueba y error. Esto nos plantea una pregunta: ¿es posible construir un controlador de feedback incluso cuando solo conocemos parcialmente el comportamiento del sistema? Los controladores adaptativos son una forma de hacerlo. En lugar de depender de una referencia externa, este tipo de controladores son capaces de estimarla a partir de la propia dinámica del sistema, ajustándose a medida que el sistema cambia (ver Figura 3)."
+                   data-en="When designing feedback controllers, one important challenge is that we usually need to understand how the system behaves. In practice, this means relying on the equations behind the process we want to control, that is, having a <em>mechanistic understanding</em> of the system. However, most native signaling pathways are still not fully understood. Because of this, it can be hard to choose a good reference signal or to tune the controller’s parameters correctly, resulting in iterative cycles of trial and error. This leads to a natural question: is it possible to build a feedback controller even when we only know part of how the system behaves? Adaptive controllers are one way to do this. Instead of depending on an external reference, they estimate it from the behavior of the system itself, adjusting as the system changes.">
+                   Al diseñar controladores de feedback, uno de los desafíos más importantes es que generalmente necesitamos entender cómo se comporta el sistema. En la práctica, esto significa utilizar ecuaciones que describen el proceso que queremos controlar (a esto también se le denomina tener un <em>entendimiento mecanístico</em> del sistema). Sin embargo, la mayoría de las vías de señalización en biología aún no se entienden por completo. Por ello, puede resultar difícil elegir una buena señal de referencia o ajustar correctamente los parámetros del controlador, lo que lleva a ciclos iterativos de prueba y error. Esto nos plantea una pregunta: ¿es posible construir un controlador de feedback incluso cuando solo conocemos parcialmente el comportamiento del sistema? Los controladores adaptativos son una forma de hacerlo. En lugar de depender de una referencia externa, este tipo de controladores son capaces de estimarla a partir de la propia dinámica del sistema, ajustándose a medida que el sistema cambia (ver Figura 3).
+                </p>
+
+                <div class="cell cell-markdown" style="display: flex; justify-content: center;">
+                    <img src="Figura 6_LN3_esp.png" alt="Figura ES" class="lang-img" data-lang="es" style="max-width: 100%; height: auto;">
+                    <img src="Figura 6_LN3_en.png" alt="Figure EN" class="lang-img" data-lang="en" style="max-width: 100%; height: auto; display: none;">
+                </div>
+
+            </div>
+
+            <div class="cell cell-markdown">
+
+                <h2 style="color: var(--dark-purple);" data-es="Diseño de un controlador adaptativo biomolecular usando el motivo incoherent feedforward loop (IFFL)"
+                    data-en="Design on a biomolecular adaptive controller using the incoherent feedforward loop (IFFL)">
+                    Diseño de un controlador adaptativo biomolecular usando el motivo incoherent feedforward loop (IFFL)
+                </h2>
+
+                <p data-es="Una de las estrategias más directas para implementar control adaptativo se basa en la acción derivativa. En 2004, Pyragas et al. implementaron un controlador adaptativo (electrónico) basado en un filtro pasa-bajas y un operador derivativo. Esta estrategia no afecta el equilibrio del sistema, ya que, si la salida del controlador es proporcional a la derivada del proceso, cuanto más cerca se encuentra del estado estacionario, menor será la acción del controlador. Una vez que el sistema alcanza su estado estacionario, la acción del controlador desaparece, ya que la derivada converge a cero (<a style='color: var(--dark-purple);' href='https://journals.aps.org/pre/abstract/10.1103/PhysRevE.70.026215'>Pyragas et al., 2004</a>)."
+                   data-en="One of the most straighforward strategies to implement adaptive control is based on the derivative action. In 2004, Pyragas et al implemented an electronic adaptive controller based on a low-pass filter and a derivative operator. This strategy doesn't affect the equilibrium of the system: since the output of the controller is proportional to the derivative of the process, the closer it gets to its steady-state, the lesser the action of the controller. Once the system reaches its steady-state, the controller's action vanishes since the derivative fades away (<a style='color: var(--dark-purple);' href='https://journals.aps.org/pre/abstract/10.1103/PhysRevE.70.026215'>Pyragas et al., 2004</a>).">
+                   Una de las estrategias más directas para implementar control adaptativo se basa en la acción derivativa. En 2004, Pyragas et al. implementaron un controlador adaptativo (electrónico) basado en un filtro pasa-bajas y un operador derivativo. Esta estrategia no afecta el equilibrio del sistema, ya que, si la salida del controlador es proporcional a la derivada del proceso, cuanto más cerca se encuentra del estado estacionario, menor será la acción del controlador. Una vez que el sistema alcanza su estado estacionario, la acción del controlador desaparece, ya que la derivada converge a cero (<a style='color: var(--dark-purple);' href='https://journals.aps.org/pre/abstract/10.1103/PhysRevE.70.026215'>Pyragas et al., 2004</a>).
+                </p>
+
+                <p data-es="Ahora estudiaremos cómo implementar un diseño similar utilizando reacciones químicas. Para lograr un funcionamiento análogo, consideramos el motivo conocido como *incoherent feedforward loop* (IFFL), en el que una entrada $Y$ produce simultáneamente las especies $U_1$ y $U_2$, y donde $U_2$ inhibe la acción de $U_1$. Consideremos ahora una reacción de secuestro molecular entre las especies $U_1$ y $U_2$. Supongamos además que otra especie intermedia $X$ produce $U_1$, y que tanto $X$ como $U_2$ son producidas por la entrada $Y$ (ver Figura x). Esta estrategia implementa esencialmente una topología del tipo IFFL, la cual podemos modelar mediante el siguiente sistema de ecuaciones diferenciales ordinarias:"
+                   data-en="Here, we will explore how to implement a similar design using chemical reactions. To obtain a similar operation, we consider the incoherent feedforward loop (IFFL) motif, where an input $Y$ produces simultaneously the species $U_1$ and $U_2$, and where $U_2$ inhibits the action of $U_1$. Let's consider now a molecular sequestration reaction between the species $U_1$ and $U_2$. Let also another intermediate specie $X$ to produce $U_1$, and let $X$ and $U_2$ be produced by an input $Y$ (see Figure). This strategy essentially implements an IFFL-like topology, which we can model this motif with the following ODEs:">
+                   Ahora estudiaremos cómo implementar un diseño similar utilizando reacciones químicas. Para lograr un funcionamiento análogo, consideramos el motivo conocido como *incoherent feedforward loop* (IFFL), en el que una entrada $Y$ produce simultáneamente las especies $U_1$ y $U_2$, y donde $U_2$ inhibe la acción de $U_1$. Consideremos ahora una reacción de secuestro molecular entre las especies $U_1$ y $U_2$. Supongamos además que otra especie intermedia $X$ produce $U_1$, y que tanto $X$ como $U_2$ son producidas por la entrada $Y$ (ver Figura x). Esta estrategia implementa esencialmente una topología del tipo IFFL, la cual podemos modelar mediante el siguiente sistema de ecuaciones diferenciales ordinarias:
+                </p>
+
+                <div class="math-block">
+                    $$\begin{eqnarray}
+                    \frac{du_1}{dt} &=& kx - \delta u_1 - \gamma u_1 u_2 \\
+                    \frac{du_2}{dt} &=& \rho y - \delta u_2 - \gamma u_1 u_2 \\
+                    \frac{dx}{dt} &=& kx - \delta x
+                    \end{eqnarray}$$
+                </div>
+
+                <div class="cell cell-markdown" style="display: flex; justify-content: center;">
+                    <img src="Figura 7_LN3_esp.png" alt="Figura ES" class="lang-img" data-lang="es" style="max-width: 100%; height: auto;">
+                    <img src="Figura 7_LN3_esp.png" alt="Figure EN" class="lang-img" data-lang="en" style="max-width: 100%; height: auto; display: none;">
+                </div>
+
+                <p data-es="Para nuestro análisis, consideremos el complejo $C$ que se forma cuando $U_1$ y $U_2$ interactúan mediante secuestramiento, pero que usualmente ignoramos ya que no juega un rol en la dinámica del sistema de lazo cerrado cuando el secuestramiento es muy rápido. Podemos modelar la dinámica de $C$ con la siguiente ecuación diferencial:"
+                   data-en="For our analysis, let's consider the complex $C$ that is formed when $U_1$ and $U_2$ interact through sequestration, but we usually ignore since it doesn't play a role in the system's dynamics during fast sequestration. We can model the dynamics of $C$ with the following ODE:">
+                  Para nuestro análisis, consideremos el complejo $C$ que se forma cuando $U_1$ y $U_2$ interactúan mediante secuestramiento, pero que usualmente ignoramos ya que no juega un rol en la dinámica del sistema de lazo cerrado cuando el secuestramiento es muy rápido. Podemos modelar la dinámica de $C$ con la siguiente ecuación diferencial:
+                </p>
+
+                <div class="math-block">
+                    $$\begin{eqnarray}
+                    \frac{dc}{dt} &=& \gamma u_1 u_2 - \delta c
+                    \end{eqnarray}$$
+                </div>
+
+                <p data-es="Ahora, consideremos las ecuaciones de conservación de masa para $u_1$ y $u_2$. Sea $u_1^T$ la concentración total de $u_1$ (ya sea libre o unida a $U_2$ formando el complejo), de modo que $u_1^T = u_1 + c$. Lo mismo para la especie $U_2$: sea $u_2^T = u_2 + c$. Si reescribimos nuestras ecuaciones diferenciales anteriores en términos de $u_1^T$ y $u_2^T$, notaremos que son lineales!"
+                   data-en="Now, let's consider the mass conservation equations for $u_1$ and $u_2$. Let $u_1^T$ be the total concentration of $u_1$ (either free or in the complex), so that $u_1^T = u_1 + c$. The same idea for the species $U_2$: let $u_2^T = u_2 + c$. If we replace our rewrite our previous ODEs in terms of $u_1^T$ and $u_2^T$, we will notice that they are linear!">
+                  Ahora, consideremos las ecuaciones de conservación de masa para $u_1$ y $u_2$. Sea $u_1^T$ la concentración total de $u_1$ (ya sea libre o unida a $U_2$ formando el complejo), de modo que $u_1^T = u_1 + c$. Lo mismo para la especie $U_2$: sea $u_2^T = u_2 + c$. Si reescribimos nuestras ecuaciones diferenciales anteriores en términos de $u_1^T$ y $u_2^T$, notaremos que son lineales!
+                </p>
+
+                <div class="math-block">
+                    $$\begin{eqnarray}
+                    \frac{d u_1^T}{dt} &=& kx - \delta u_1^T \\
+                    \frac{d u_2^T}{dt} &=& \rho y - \delta u_2^T \\
+                    \frac{d x}{dt} &=& \theta y - \delta x
+                    \end{eqnarray}$$
+                </div>
+
+                <p data-es="De nuestro Lecture Note #1, recordamos que podemos escribir la dinámica de $u_1(t)$ como $\max (0, u_1^T - u_2^T)$ en el régimen de secuestramiento rápido. Podemos reescribir esta expresión como $u_1(t) \approx \max \{ 0, \mathcal{L}^{-1} [U_1^T(s) - U_2^T(s)] \}$, donde $\mathcal{L}^{-1}$ es la transformada inversa de Laplace, y $U_1^T(s)$ y $U_2^T(s)$ son las transformadas de Laplace de $u_1^T(t)$ y $u_2^T(t)$, respectivamente. Ahora, al aplicar la transformada de Laplace a nuestras ecuaciones diferenciales anteriores y reorganizar los términos, encontramos que"
+                   data-en="From our Lecture Note #1, we remember that we can write the dynamics of $u_1(t)$ as $\max (0, u_1^T - u_2^T)$ in the fast sequestration regime. We can rewrite this expression as $u_1(t) \approx \max \{ 0, \mathcal{L}^{-1} [U_1^T(s) - U_2^T(s)] \}$, where $\mathcal{L}^{-1}$ is the inverse Laplace transform, and $U_1^T(s)$ and $U_2^T(s)$ are the Laplace transforms or $u_1^T(t)$ and $u_2^T(t)$, respectively. Now, by taking the Laplace transform to our previous ODEs and rearranging the terms, we find  that">
+                  De nuestro Lecture Note #1, recordamos que podemos escribir la dinámica de $u_1(t)$ como $\max (0, u_1^T - u_2^T)$ en el régimen de secuestramiento rápido. Podemos reescribir esta expresión como $u_1(t) \approx \max \{ 0, \mathcal{L}^{-1} [U_1^T(s) - U_2^T(s)] \}$, donde $\mathcal{L}^{-1}$ es la transformada inversa de Laplace, y $U_1^T(s)$ y $U_2^T(s)$ son las transformadas de Laplace de $u_1^T(t)$ y $u_2^T(t)$, respectivamente. Ahora, al aplicar la transformada de Laplace a nuestras ecuaciones diferenciales anteriores y reorganizar los términos, encontramos que
+                </p>
+
+                <div class="math-block">
+                    $$\begin{eqnarray}
+                    u_1(t) \approx \max \left \{ 0, \mathcal{L}^{-1} \left ( \frac{k \theta}{(s+\delta)^2} \left [1 - \frac{\rho \delta}{k \theta} - \frac{\rho}{k \theta}s \right ] Y(s) \right) \right \}
+                    \end{eqnarray}$$
+                </div>
+
+                <p data-es="A partir de esta expresión para la dinámica aproximada de $u_1(t)$, definamos la métrica $r = \rho \delta / k \theta$. Cuando $r = 1$, notamos que el término $1 - r$ desaparece de la ecuación. Por lo tanto, nos queda $k \theta / (s + \delta)^2$, que representa un filtro pasa-bajas, y $- \rho/k \theta \, s$, que representa un operador derivativo que responde a gradientes negativos; exactamente los dos operadores que necesitábamos para el controlador adaptativo! Por esta razón, llamaremos a $r$ la <strong>métrica adaptativa ideal</strong> y exploraremos sus propiedades mediante algunas simulaciones."
+                   data-en="From this expression for the approximated dynamics of $u_1(t)$, let's define the metric $r = \rho \delta / k \theta$. When $r = 1$, we note that the term $1 - r$ vanishes from the equation. Therefore, we are left with $k \theta / (s + \delta)^2$, which represents a low-pass filter, and with $- \rho/k \theta s$, which represents a derivative that responds to negative gradients; exactly the two operators that we needed for the adaptive controller! For this reason, let's refer to $r$ as the <strong>ideal adaptive metric</strong> and explore its properties through some simulations.">
+                  A partir de esta expresión para la dinámica aproximada de $u_1(t)$, definamos la métrica $r = \rho \delta / k \theta$. Cuando $r = 1$, notamos que el término $1 - r$ desaparece de la ecuación. Por lo tanto, nos queda $k \theta / (s + \delta)^2$, que representa un filtro pasa-bajas, y $- \rho/k \theta \, s$, que representa un operador derivativo que responde a gradientes negativos; exactamente los dos operadores que necesitábamos para el controlador adaptativo! Por esta razón, llamaremos a $r$ la <strong>métrica adaptativa ideal</strong> y exploraremos sus propiedades mediante algunas simulaciones.
+                </p>
+            </div>
+
+
+            <div class="cell cell-markdown">
+                <h2 style="color: var(--dark-purple);" data-es="Desestabilización del estado estacionario de un gen auto-inhibidor"
+                    data-en="Destabilizing the steady-state of a self-inhibiting gene">
+                    Desestabilización del estado estacionario de un gen auto-inhibidor
+                </h2>
+
+                <p data-es="Como ejemplo, consideremos un gen que expresa un represor transcripcional que inhibe su propia transcripción. Si asumimos una dinámica sin ningún retraso adicional, tendremos un modelo simple que representa un sistema biológico que ha perdido su comportamiento oscilatorio debido a una enfermedad, como ocurre con la disrupción de los ritmos circadianos en el cáncer (<a style='color: var(--dark-purple);' href='https://elifesciences.org/articles/09100'>Zambrano et al., 2016</a>)  y en enfermedades metabólicas (<a style='color: var(--dark-purple);' href='https://www.science.org/doi/10.1126/sciadv.abi9654'>Gabriel et al., 2021</a>). Volvamos a adimensionalizar el sistema, lo que nos lleva al siguiente conjunto de ecuaciones diferenciales para el gen que inhibe su propia transcripción conectado al controlador adaptativo:"
+                   data-en="As a case study, let’s consider a self-inhibiting gene without any additional delay, representing a system that has lost its oscillatory behavior due to disease, such as the disruption of circadian rhythms in cancer (<a style='color: var(--dark-purple);' href='https://elifesciences.org/articles/09100'>Zambrano et al., 2016</a>) and metabolic diseases (<a style='color: var(--dark-purple);' href='https://www.science.org/doi/10.1126/sciadv.abi9654'>Gabriel et al., 2021</a>). Let's non dimensionalize once again, resulting in the following ODEs for the self-inhibiting gene connected to the adaptive controller:">
+                    Como ejemplo, consideremos un gen que expresa un represor transcripcional que inhibe su propia transcripción. Si asumimos una dinámica sin ningún retraso adicional, tendremos un modelo simple que representa un sistema biológico que ha perdido su comportamiento oscilatorio debido a una enfermedad, como ocurre con la disrupción de los ritmos circadianos en el cáncer (<a style='color: var(--dark-purple);' href='https://elifesciences.org/articles/09100'>Zambrano et al., 2016</a>)  y en enfermedades metabólicas (<a style='color: var(--dark-purple);' href='https://www.science.org/doi/10.1126/sciadv.abi9654'>Gabriel et al., 2021</a>). Volvamos a adimensionalizar el sistema, lo que nos lleva al siguiente conjunto de ecuaciones diferenciales para el gen que inhibe su propia transcripción conectado al controlador adaptativo:
+                </p>
+
+                <div class="math-block">
+                    $$\begin{eqnarray}
+                    \frac{dy}{dt} &=& \alpha \frac{1}{1 + y^m} -  y + \beta u_1 \\
+                    \frac{du_1}{dt} &=& kx -  u_1 - \frac{1}{\xi} u_1 u_2 \\
+                    \frac{du_2}{dt} &=& \rho \frac{1}{1 + y^m} -  u_2 - \frac{1}{\xi} u_1 u_2 \\
+                    \frac{dx}{dt} &=& kx -  x
+                    \end{eqnarray}$$
+                </div>
+
+                <p data-es="donde el término $\beta u_1$ representa la señal de control del controlador adaptativo."
+                   data-en="where the term $\beta u_1$ is the control signal of the adaptive controller.">
+                   donde el término $\beta u_1$ representa la señal de control del controlador adaptativo.
+                </p>
+
+            </div>
+
+            <div class="cell cell-output" style="margin-bottom: 0.5rem; text-align: center;">
+            <!-- Versión en español -->
+                <iframe class="lang-img" data-lang="es"
+                    src="Figura 8_LN3_esp.html"
+                    width="100%" height="225"
+                    style="border:none; display: block;"></iframe>
+
+                <!-- Versión en inglés -->
+                <iframe class="lang-img" data-lang="en"
+                    src="Figura 8_LN3_en.html"
+                    width="100%" height="225"
+                    style="border:none; display: none;"></iframe>
+            </div>
+
+            <div class="cell cell-markdown">
+                <p data-es="Dado que el controlador adaptativo es capaz de generar oscilaciones sostenidas, surge una pregunta natural: ¿son esas oscilaciones robustas frente a perturbaciones? O, de forma aún más interesante, ¿son las <em>propiedades dinámicas</em> de esas oscilaciones, como su frecuencia y amplitud, robustas frente a perturbaciones? Antes de explorar estas preguntas mediante simulaciones, definamos el período como el inverso de la frecuencia, calculado como el intervalo promedio entre picos consecutivos. De manera similar, definamos la amplitud como la diferencia promedio entre los valores de esos picos."
+                   data-en="Since the adaptive controller is able to generate sustained oscillations, a natural question arises: are those oscillations robust to perturbations? Or, more interestingly, are the <em>dynamical properties</em> of the oscillations, such as their frequency and amplitude, robust to perturbations? Before exploring these questions using simulations, let's define the period as the inverse of the frequency, calculated as the mean interval between consecutive peaks. Similarly, let's define the amplitude as the mean difference between the values of those peaks.">
+                  Dado que el controlador adaptativo es capaz de generar oscilaciones sostenidas, surge una pregunta natural: ¿son esas oscilaciones robustas frente a perturbaciones? O, de forma aún más interesante, ¿son las <em>propiedades dinámicas</em> de esas oscilaciones, como su frecuencia y amplitud, robustas frente a perturbaciones? Antes de explorar estas preguntas mediante simulaciones, definamos el período como el inverso de la frecuencia, calculado como el intervalo promedio entre picos consecutivos. De manera similar, definamos la amplitud como la diferencia promedio entre los valores de esos picos.
+                </p>
+            </div>
+
+            <div class="cell cell-output" style="margin-bottom: 0.5rem; text-align: center;">
+            <!-- Versión en español -->
+                <iframe class="lang-img" data-lang="es"
+                    src="Figura 9_LN3_esp.html"
+                    width="100%" height="225"
+                    style="border:none; display: block;"></iframe>
+
+                <!-- Versión en inglés -->
+                <iframe class="lang-img" data-lang="en"
+                    src="Figura 9_LN3_en.html"
+                    width="100%" height="225"
+                    style="border:none; display: none;"></iframe>
+            </div>
+
+
+            <div class="cell cell-markdown">
+
+                <h3  data-es="Lecturas recomendadas"
+                    data-en="Recommended Readings">
+                    Lecturas recomendadas
+                </h3>
+                
+                <p data-es="<strong>[1]</strong> Del Vecchio, D., Dy, A.J. and Qian, Y. (2016) ‘Control theory meets synthetic biology’, Journal of The Royal Society Interface, 13(120), p. 20160380. doi:10.1098/rsif.2016.0380."
+                   data-en="<strong>[1]</strong> Del Vecchio, D., Dy, A.J. and Qian, Y. (2016) ‘Control theory meets synthetic biology’, Journal of The Royal Society Interface, 13(120), p. 20160380. doi:10.1098/rsif.2016.0380.">
+                    <strong>[1]</strong> Del Vecchio, D., Dy, A.J. and Qian, Y. (2016) ‘Control theory meets synthetic biology’, Journal of The Royal Society Interface, 13(120), p. 20160380. doi:10.1098/rsif.2016.0380.
+                </p>
+
+                <p data-es="<strong>[2]</strong>  Cuba Samaniego, C. and Franco, E. (2021) ‘Ultrasensitive molecular controllers for quasi-integral feedback’, Cell Systems, 12(3). doi:10.1016/j.cels.2021.01.001."
+                   data-en="<strong>[2]</strong>  Cuba Samaniego, C. and Franco, E. (2021) ‘Ultrasensitive molecular controllers for quasi-integral feedback’, Cell Systems, 12(3). doi:10.1016/j.cels.2021.01.001.">
+                    <strong>[2]</strong>  Cuba Samaniego, C. and Franco, E. (2021) ‘Ultrasensitive molecular controllers for quasi-integral feedback’, Cell Systems, 12(3). doi:10.1016/j.cels.2021.01.001.
+                </p>
+
+                <p data-es="<strong>[3]</strong> Filo, M., Kumar, S. and Khammash, M. (2022) ‘A hierarchy of biomolecular proportional-integral-derivative feedback controllers for robust perfect adaptation and dynamic performance’, Nature Communications, 13(1). doi:10.1038/s41467-022-29640-7."
+                   data-en="<strong>[3]</strong> Filo, M., Kumar, S. and Khammash, M. (2022) ‘A hierarchy of biomolecular proportional-integral-derivative feedback controllers for robust perfect adaptation and dynamic performance’, Nature Communications, 13(1). doi:10.1038/s41467-022-29640-7.">
+                    <strong>[3]</strong> Filo, M., Kumar, S. and Khammash, M. (2022) ‘A hierarchy of biomolecular proportional-integral-derivative feedback controllers for robust perfect adaptation and dynamic performance’, Nature Communications, 13(1). doi:10.1038/s41467-022-29640-7.
+                </p>
+
+                <p data-es="<strong>[4]</strong> Britto Bisso, F. et al. (2024) Design of a biomolecular adaptive controller to restore sustained periodic behavior [Preprint]. doi:10.1101/2024.10.11.617962."
+                   data-en="<strong>[4]</strong> Britto Bisso, F. et al. (2024) Design of a biomolecular adaptive controller to restore sustained periodic behavior [Preprint]. doi:10.1101/2024.10.11.617962.">
+                    <strong>[4]</strong> Britto Bisso, F. et al. (2024) Design of a biomolecular adaptive controller to restore sustained periodic behavior [Preprint]. doi:10.1101/2024.10.11.617962.
+                </p>
+
+
+            </div>
+            
+
+        </div>
+    </section>
+
+    <!-- Footer - exactamente igual a tu index -->
+    <footer class="footer">
+        <div class="container">
+            <p data-es="&copy; 2025 EBCP Latam. Preparado por el Laboratorio del Dr. Christian Cuba Samaniego"
+               data-en="&copy; 2025 EBCP Latam. Prepared by Dr. Christian Cuba Samaniego's Laboratory">
+               &copy; 2025 EBCP Latam. Preparado por el Laboratorio del Dr. Christian Cuba Samaniego
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <!-- JavaScript exactamente igual a tu index -->
+    <script>
+        class LanguageManager {
+            constructor() {
+                this.currentLang = localStorage.getItem('selectedLanguage') || 'es';
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.setLanguage(this.currentLang);
+            }
+
+            setupEventListeners() {
+                const langButtons = document.querySelectorAll('.lang-btn');
+                langButtons.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const lang = e.target.getAttribute('data-lang');
+                        this.setLanguage(lang);
+                    });
+                });
+            }
+
+            setLanguage(lang) {
+                this.currentLang = lang;
+                localStorage.setItem('selectedLanguage', lang);
+                
+                document.getElementById('html-root').setAttribute('lang', lang);
+                
+                const elements = document.querySelectorAll('[data-es][data-en]');
+                elements.forEach(element => {
+                    const text = element.getAttribute(`data-${lang}`);
+                    if (text) {
+                        element.innerHTML = text;
+                    }
+                });
+
+
+                if (window.MathJax) {
+                    MathJax.typesetPromise();
+                }
+
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Mostrar/ocultar bloques de código por idioma
+                document.querySelectorAll('.lang-block').forEach(block => {
+                    const blockLang = block.getAttribute('data-lang');
+                    block.style.display = (blockLang === lang) ? 'block' : 'none';
+                });
+
+                // Mostrar/ocultar imágenes según idioma
+                document.querySelectorAll('.lang-img').forEach(img => {
+                    const imgLang = img.getAttribute('data-lang');
+                    img.style.display = (imgLang === lang) ? 'block' : 'none';
+                });
+
+                const titles = {
+                    es: 'Controladores biomoleculares - EBCP Latam 2025',
+                    en: 'Biomolecular controllers - EBCP Latam 2025'
+                };
+                document.title = titles[lang];
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new LanguageManager();
+        });
+
+    </script>
+    <script>
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    </script>
+</body>
+</html>
