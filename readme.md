@@ -1,2 +1,2 @@
 # Respositorio para curso Matematica para Negocios II
-[Descargar el HTML](https://github.com/iruminot/Matematica_negocios_II/raw/refs/heads/main/clases/Clase_1.html)
+[Ver HTML](https://htmlpreview.github.io/?https://github.com/iruminot/Matematica_negocios_II/raw/refs/heads/main/clases/Clase_1.html)
